@@ -40,7 +40,7 @@ const Statistics = ({good, neutral, bad}) => {
   const count = good + neutral + bad
   const average = (good + 0 * neutral + bad * -1) / count
   const positive = good / count * 100
-  
+
   if (count == 0) {
     return (
       <div>
@@ -52,23 +52,26 @@ const Statistics = ({good, neutral, bad}) => {
   return (
     <div>
        <h2>statistics</h2>
-       <ul>
-        <li><StatisticLine text="good" value={good} /></li>
-        <li><StatisticLine text="neutral" value={neutral} /></li>
-        <li><StatisticLine text="bad" value={bad} /></li>
-        <li><StatisticLine text="all" value={count} /></li>
-        <li><StatisticLine text="average" value={average} /></li>
-        <li><StatisticLine text="positive" value={positive} /></li>
-      </ul>
+       <table>
+        <tbody>
+          <StatisticLine text="good" value={good} />
+          <StatisticLine text="neutral" value={neutral} />
+          <StatisticLine text="bad" value={bad} />
+          <StatisticLine text="all" value={count} />
+          <StatisticLine text="average" value={average} />
+          <StatisticLine text="positive" value={positive} />
+        </tbody>
+      </table>
     </div>
   )
 }
 
 const StatisticLine = ({text, value}) => {
   return (
-    <div>
-      {text} {value}
-    </div>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   )
 }
 
